@@ -24,8 +24,6 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    private List<Category> categories =new ArrayList<>();
-
     @GetMapping("/public/categories")
     //@RequestMapping(value = "/public/categories",method = RequestMethod.GET)
     public ResponseEntity<List<Category>> getCategories()
@@ -45,28 +43,16 @@ public class CategoryController {
     @DeleteMapping("/admin/categories/{categoryId}")
     public ResponseEntity<String> deleteCategory(@PathVariable Long categoryId)
     {
-        try {
             String status = categoryService.deleteCategory(categoryId);
-            //return new ResponseEntity<>(status, HttpStatus.OK);
-            //return ResponseEntity.ok(status);
-            return ResponseEntity.status(HttpStatus.OK).body(status);
-        }
-        catch(ResponseStatusException e)
-        {
-            return new ResponseEntity<>(e.getReason(),e.getStatusCode());
-        }
+            return new ResponseEntity<>(status, HttpStatus.OK);
     }
 
     @PutMapping("/public/categories/{categoryId}")
     public ResponseEntity<String> updateCategory(@RequestBody Category category, @PathVariable Long categoryId)
     {
-        try{
             categoryService.updateCategory(category,categoryId);
             return new ResponseEntity<>("Updated the category",HttpStatus.OK);
-        }
-        catch(ResponseStatusException e){
-            return new ResponseEntity<>(e.getReason(),e.getStatusCode());
-    }
+
     }
 }
 
