@@ -1,5 +1,6 @@
 package com.ecommerce.project.controller;
 
+import com.ecommerce.project.config.AppConstants;
 import com.ecommerce.project.models.Category;
 import com.ecommerce.project.payload.CategoryDTO;
 import com.ecommerce.project.payload.CategoryResponse;
@@ -35,8 +36,8 @@ public class CategoryController {
 
     @GetMapping("/public/categories")
     //@RequestMapping(value = "/public/categories",method = RequestMethod.GET)
-    public ResponseEntity<CategoryResponse> getCategories(@RequestParam(name = "pageNumber") Integer pageNumber,
-                                                          @RequestParam(name="pageSize") Integer pageSize)
+    public ResponseEntity<CategoryResponse> getCategories(@RequestParam(name = "pageNumber",defaultValue = AppConstants.PAGE_NUMBER) Integer pageNumber,
+                                                          @RequestParam(name="pageSize",defaultValue = AppConstants.PAGE_SIZE) Integer pageSize)
     {
         CategoryResponse cats= categoryService.getCategories(pageNumber,pageSize);
         return new ResponseEntity<>(cats,HttpStatus.OK);
