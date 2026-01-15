@@ -4,6 +4,7 @@ import com.ecommerce.project.models.Category;
 import com.ecommerce.project.payload.CategoryDTO;
 import com.ecommerce.project.payload.CategoryResponse;
 import com.ecommerce.project.service.CategoryService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
@@ -26,17 +27,18 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/echo")
-    public ResponseEntity<String> echo(@RequestParam(name = "message",defaultValue = "Hello World") String message)
-    {
-        return new ResponseEntity<>("Echoed message: "+message,HttpStatus.OK);
-    }
+//    @GetMapping("/echo")
+//    public ResponseEntity<String> echo(@RequestParam(name = "message",defaultValue = "Hello World") String message)
+//    {
+//        return new ResponseEntity<>("Echoed message: "+message,HttpStatus.OK);
+//    }
 
     @GetMapping("/public/categories")
     //@RequestMapping(value = "/public/categories",method = RequestMethod.GET)
-    public ResponseEntity<CategoryResponse> getCategories()
+    public ResponseEntity<CategoryResponse> getCategories(@RequestParam(name = "pageNumber") Integer pageNumber,
+                                                          @RequestParam(name="pageSize") Integer pageSize)
     {
-        CategoryResponse cats= categoryService.getCategories();
+        CategoryResponse cats= categoryService.getCategories(pageNumber,pageSize);
         return new ResponseEntity<>(cats,HttpStatus.OK);
     }
 
