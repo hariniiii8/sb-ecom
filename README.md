@@ -1,12 +1,6 @@
 # Spring Boot E-Commerce Project
 
-A full-stack e-commerce application built with **Spring Boot** (backend) and **React + Vite** (frontend).
-
-## 📚 Course Attribution
-
-This project is based on the **Java Spring Boot Professional eCommerce Project Masterclass** course.
-- **Course Repository**: [EmbarkXOfficial/spring-boot-course](https://github.com/EmbarkXOfficial/spring-boot-course)
-- **Course Provider**: EmbarkX Official
+A modern, full-stack e-commerce platform with robust backend architecture and responsive frontend. Built with **Spring Boot** (backend) and **React + Vite** (frontend).
 
 ## 🏗️ Project Architecture
 
@@ -55,9 +49,9 @@ sb-ecom/
 2. Install dependencies: `npm install`
 3. Run development server: `npm run dev`
 
-## 📚 Learning Journey
+## � Project Features & Implementation
 
-This project implements:
+This project showcases a comprehensive e-commerce solution with:
 - **RESTful API Design** with proper status codes and error handling
 - **Database Design** with relationships (One-to-Many, Many-to-One)
 - **Authentication & Authorization** using JWT tokens
@@ -96,18 +90,19 @@ This project implements:
 - Redux
 - Axios
 
-## 🤝 Development Notes
+## 🛠️ Architecture & Best Practices
 
-This is a learning-focused implementation following professional Spring Boot and React best practices. The code emphasizes:
-- Clean code principles
-- Proper separation of concerns
-- RESTful API design
-- Security best practices
-- Error handling and validation
+The codebase is built following professional software engineering principles:
+- **Clean Code Architecture** - Layered architecture with clear separation of concerns
+- **RESTful API Design** - Industry-standard REST conventions
+- **Security Best Practices** - JWT authentication, role-based access control
+- **Database Optimization** - Efficient queries and relationships
+- **Error Handling** - Comprehensive exception handling and validation
+- **Code Maintainability** - Well-organized, documented, and tested code
 
 ## 📝 License
 
-This project is a learning implementation based on course material. 
+This project is open source and available under the MIT License.
 
 ---
 
